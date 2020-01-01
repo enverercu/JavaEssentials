@@ -1,0 +1,8 @@
+What Is the Difference Between Static and Dynamic Class Loading?
+Static class loading takes place when we have source classes available at compile time. 
+We can make use of it by creating object instances with the new keyword.
+
+Dynamic class loading refers to a situation when we can't provide a class definition at the compile time. 
+Yet, we can do that at runtime. To create an instance of a class, we have to use the Class.forName() method:
+
+Class.forName("oracle.jdbc.driver.OracleDriver")

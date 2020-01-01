@@ -1,0 +1,4 @@
+Eager loading means to load the data before the requirement 
+whereas lazy loading mean that load the data only when required.
+
+Eager loading fetch the data in one query whereas lazy loading fetch the data when needed by triggering the sub query.

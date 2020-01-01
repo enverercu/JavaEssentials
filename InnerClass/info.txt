@@ -1,0 +1,5 @@
+Define inner class in Java.
+
+Class that is nested within a class is called as inner class. 
+The inner class can access private members of the outer class. 
+It is mainly used to implement data structure and sometimes called as a helper class

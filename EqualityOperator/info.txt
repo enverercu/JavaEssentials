@@ -1,0 +1,18 @@
+Can we compare String using equality operator (==) operator?
+
+We can compare String using equality operator. But we mostly use equals() method because of following reasons.
+
+The equality operator is used to compare "primitives values" only where as equals method() should be used to compare objects.
+
+equals() method is used to perform "character based comparison".
+
+equals() return true if two String represent to the "same object" or when both "strings contents" are exactly same 
+
+but == equality operator returns true if "two string object represents to same object" 
+but "return false" if "two different string object" contains "same contents".
+
+
+Summary
+1) use == to compare primitive e.g. boolean, int, char etc, while use equals() to compare objects in Java.
+2) == return true if two reference are of same object. Result of equals() method depends on overridden implementation.
+3) For comparing String use equals() instead of  == equality operator.

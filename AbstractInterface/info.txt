@@ -1,0 +1,36 @@
+What's the difference between an interface and an abstract class? Also discuss the similarities. (Very Important)
+-->
+Abstract class is a class which contain one or more abstract methods, which has to be implemented by sub classes. Interface is a Java Object containing method declaration and doesn't contain implementation. The classes which have implementing the Interfaces must provide the method definition for all the methods
+Abstract class is a Class prefix with a abstract keyword followed by Class definition. Interface is a Interface which starts with interface keyword.
+Abstract class contains one or more abstract methods. where as Interface contains all abstract methods and final declarations
+Abstract classes are useful in a situation that Some general methods should be implemented and specialization behavior should be implemented by child classes. Interfaces are useful in a situation that all properties should be implemented.
+
+Differences are as follows:
+
+-Interfaces provide a form of multiple inheritance. A class can extend only one other class.
+-Interfaces are limited to public methods and constants with no implementation. Abstract classes can have a partial implementation, protected parts, static methods, etc.
+-A Class may implement several interfaces. But in case of abstract class, a class may extend only one abstract class.
+-Interfaces are slow as it requires extra indirection to to find corresponding method in in the actual class. Abstract classes are fast.
+
+Similarities:
+-Neither Abstract classes or Interface can be instantiated.
+
+How to define an Abstract class?
+A class containing abstract method is called Abstract class. An Abstract class can't be instantiated. Example of Abstract class:
+
+abstract class testAbstractClass {
+protected String myString;
+public String getMyString() {
+return myString;
+}
+public abstract string anyAbstractFunction();
+}
+
+How to define an Interface?
+Answer: In Java Interface defines the methods but does not implement them. Interface can include constants. A class that implements the interfaces is bound to implement all the methods defined in Interface.
+Example of Interface:
+
+public interface sampleInterface {
+public void functionOne();
+public long CONSTANT_ONE = 1000;
+}

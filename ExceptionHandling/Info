@@ -1,0 +1,41 @@
+Throwable is the super class of Exception and Error class in Java.
+
+throws ile throw arasýndaki fark nedir.
+The throw keyword is used to explicitly raise a exception within the program.
+On the contrary, the throws clause is used to indicate those exceptions that are not handled by a method. 
+Each method must explicitly specify which exceptions does not handle, 
+so the callers of that method can guard against possible exceptions. 
+Finally, multiple exceptions are separated by a comma.
+
+All exception classes in Java extend the class ‘Throwable’. Throwable has two subclasses, Error and Exception
+
+The Error class defines the exception or the problems that are not expected to occur under 
+normal circumstances by our program, example Memory error, Hardware error, JVM error, etc
+
+The Exception class represents the exceptions that can be handled by our program, 
+and our program can be recovered from this exception using try and catch block
+
+A Runtime exception is a sub-class of the exception class. 
+The Exception of these type represents exception that occur at the run time and 
+which cannot be tracked at the compile time. An excellent example of same is divide by zero exception, 
+or null pointer exception, etc
+
+IO exception is generated during input and output operations
+
+Interrupted exceptions in Java, is generated during multiple threading.
+
+
+What is throws keyword in Java?
+throws keyword is used to declare that a method may throw one or some exceptions. 
+The caller must catch the exceptions.
+
+java provides an option, wherein whenever you are using a risky piece of code in the 
+method definition you declare it throws an exception without implementing try catch
+
+
+there are two methods to handle Exceptions.
+
+Put the Exception causing code in try and catch block.
+Declare the method to be throwing an Exception
+
+

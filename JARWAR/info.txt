@@ -1,0 +1,6 @@
+What is the difference between JAR and WAR files?
+
+- JAR files (Java Archive) allows combining many files into one 
+  whereas WAR files (Web Application Archive) stores XML, java classes, and JavaServer pages for Web Application purposes.
+  
+ - JAR is used to hold Java classes in a library whereas in WAR files are stored in lib directory of the application.

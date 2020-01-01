@@ -1,0 +1,15 @@
+Class loader enables the program to "load the class at run time". This is located in the java.lang package.
+
+Using Class loader we can also load the customize classes which is required for the application execution. 
+The class loaders in Java are organized in a tree. 
+
+When JVM is started three class loaders are used:
+
+Bootstrap class loader : The core java libraries. It is written in native code.
+
+Extensions class loader : Loads the code in the extension directories.
+
+System class loader : Code found on the java.class.path which map to the system class path variables. 
+It is implemented by AppClassLoader class.
+
+All user classes by default are load by the "system class loader".

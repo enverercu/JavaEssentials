@@ -1,0 +1,50 @@
+A CallBack Function is a function that is passed into another function as an argument and is expected 
+to execute after some kind of event. The purpose of the callback function is to inform a class Sync/Async 
+if some work in another class is done. This is very useful when working with Asynchronous tasks. 
+Suppose we want to perform some routine tasks like perform some operation or display content after clicking a button, 
+or fetching data from internet. This is also used in event handling, as we get notified 
+when a button is clicked via callback function.
+
+This type of design pattern is used in Observer Design Pattern.
+The observer pattern is a software design pattern in which an object, 
+called the subject, maintains a list of its dependent, called observers, 
+and notifies them automatically of any state changes, usually by calling one of their methods
+
+In Java, Callbacks can be implemented using an interface
+
+
+1. Define the methods in an interface that we want to invoke after callback.
+  2. Define a class that will implement the callback methods of the interface.
+  3. Define a reference in other class to register the callback interface.
+  4. Use that reference to invoke the callback method.
+  
+ Synchronous Callback
+
+The code execution will block or wait for the event before continuing. 
+Until your event returns a response, your program will not execute any further. 
+So Basically, the callback performs all its work before returning to the call statement. 
+The problem with synchronous callbacks are that they appear to lag.
+
+
+Asynchronous Callback
+
+An Asynchronous call does not block the program from the code execution. 
+When the call returns from the event, the call returns back to the callback function. 
+So in the context of Java, we have to Create a new thread and invoke the callback method inside that thread. 
+The callback function may be invoked from a thread but is not a requirement. 
+A Callback may also start a new thread, thus making themselves asynchronous.
+
+
+When To Use What
+
+Synchronous Callback : Any process having multiple tasks where the tasks must be executed in sequence 
+and doesn’t occupy much time should use synchronous Callbacks.
+For example : You’re in a movie queue for ticket you can’t get one until everyone in front of you gets one.
+
+
+Asynchronous Callback : When the tasks are not dependent on each other and may take 
+some time for execution we should use Asynchronous callbacks.
+For example : When you order your food other people can also order their food in the restaurant. 
+They don’t have to wait for your order to finish, If you’re downloading a song from internet, Getting an API response.
+
+

@@ -1,0 +1,11 @@
+The intern() method is of String class. The intern() method is supposed to return the String 
+from the String pool if the String is found in String pool, otherwise a new string object will be added 
+in String pool and the reference of this String is returned.
+
+== never throws NullPointerException.
+
+enum Color { BLACK, WHITE };
+
+Color nothing = null;
+if (nothing == Color.BLACK);      // runs fine
+if (nothing.equals(Color.BLACK)); // throws NullPointerEx

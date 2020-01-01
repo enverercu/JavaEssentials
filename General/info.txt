@@ -1,0 +1,47 @@
+Is Java Pass by Reference or Pass by Value?
+The Java Spec says that everything in Java is pass-by-value.
+There is no such thing as "pass-by-reference" in Java
+The difficult thing can be to understand that Java passes "objects as references" passed by value.
+
+
+What is the use of the finally block? Is finally block in Java guaranteed to be called? When finally block is NOT called?
+If the JVM exits while the try or catch code is being executed, then the finally block may not execute. 
+This may happen due to System.exit() call.
+
+if the thread executing the try or catch code is interrupted or killed, the finally block may not execute even though the application as a whole continues.
+
+If a exception is thrown in finally block and not handled then remaining code in finally block may not be executed.
+
+Why there are two Date classes; one in java.util package and another in java.sql?
+Explanation: A java.util.Date represents date and time of day, a java.sql.Date only represents a date (the complement of java.sql.Date is java.sql.Time, which only represents a time of day, but also extends java.util.Date).
+
+
+Why main() in java is declared as public static void main? What if the main method is declared as private?
+Public - main method is called by JVM to run the method which is outside the scope of project therefore
+the access specifier has to be public to permit call from anywhere outside 
+the application static - When the JVM makes are call to the main method there is not object existing 
+for the class being called therefore it has to have static method to allow invocation from class. 
+void - Java is platform independent language therefore if it will return some value then the 
+value may mean different to different platforms so unlike C it can not assume a behavior of returning 
+value to the operating system. If main method is declared as private then 
+- Program will compile properly but at run-time it will give "Main method not public." error.
+
+Stored procedures can be called using CallableStatement class in JDBC API.
+CallableStatement cs = con.prepareCall("{call MY_STORED_PROC_NAME}");
+ResultSet rs = cs.executeQuery();
+
+What is Connection pooling? What are the advantages of using a connection pool?
+Getting connection and disconnecting are costly operation, which affects the application performance, so we should avoid creating multiple connection during multiple database interactions. A pool contains set of Database connections which are already connected, and any client who wants to use it can take it from pool and when done with using it can be returned back to the pool
+
+
+What does Class.forName() method do?
+Method forName() is a static method of java.lang.Class. This can be used to dynamically load a class at run-time. Class.forName() loads the class if its not already loaded. It also executes the static block of loaded class. Then this method returns an instance of the loaded class. 
+So a call to Class.forName('MyClass') is going to do following
+
+
+What does setAutoCommit(false) do?
+A JDBC connection is created in auto-commit mode by default. This means that each individual SQL statement is treated as a transaction and will be automatically committed as soon as it is executed. If you require two or more statements to be grouped into a transaction then you need to disable auto-commit mode using below command
+
+con.setAutoCommit(false);
+
+Once auto-commit mode is disabled, no SQL statements will be committed until you explicitly call the commit method.

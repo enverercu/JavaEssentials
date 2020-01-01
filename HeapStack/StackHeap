@@ -1,0 +1,55 @@
+What is Stack Memory?
+LIFO
+Stack in java is a section of memory which contains methods, local variables, and reference variables. 
+Stack memory is always referenced in Last-In-First-Out order. Local variables are created in the stack.
+
+What is Heap Memory?
+Heap is a section of memory which contains Objects and may also contain reference variables. 
+Instance variables are created in the heap.
+
+Memory Allocation in Java
+The JVM divided the memory into following sections.
+1-Heap
+2-Stack
+3-Code
+4-Static
+
+The code section contains your bytecode.
+The Stack section of memory contains methods, local variables, and reference variables.
+The Heap section contains Objects (may also contain reference variables) and arrays and String pool
+The Static section contains Static data/methods.
+
+Difference between Stack and Heap
+
+Consider that your main method calling method m1
+
+public void m1{
+	int x=20;
+	m2(10);
+}
+public void m2(int b){
+	boolean c;
+	m3();
+}
+public void m3(){
+	Account ref = new Account();
+	// more code
+}
+
+In the stack java, a frame will be created from method m1.
+The variable X in m1 will also be created in the frame for m1 in the stack.
+Method m1 is calling method m2. In the stack java, a new frame is created for m2 on top of the frame m1.
+Variable b and c will also be created in a frame m2 in a stack.
+Same method m2 is calling method m3. Again a frame m3 is created on the top of the stack.
+Now let say our method m3 is creating an object for class "Account," 
+which has two instances variable int p and int q.
+The statement new Account() will create an object of account in heap.
+The reference variable "ref" will be created in a stack java.
+The assignment "=" operator will make a reference variable to point to the object in the Heap.
+Once the method has completed its execution. 
+The flow of control will go back to the calling method. Which in this case is method m2.
+The stack from method m3 will be flushed out.
+Since the reference variable will no longer be pointing to the object in the heap, 
+it would be eligible for garbage collection.
+
+

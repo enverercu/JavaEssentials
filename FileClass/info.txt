@@ -1,0 +1,3 @@
+What is the purpose of the File class?
+
+The File class provides access to the files and directories of a local file system.

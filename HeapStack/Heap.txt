@@ -1,0 +1,5 @@
+What is structure of Java Heap?
+
+The JVM has a heap that is the runtime data area from which memory for all class instances and arrays is allocated. 
+It is created at the JVM start-up.
+

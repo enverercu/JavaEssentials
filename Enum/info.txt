@@ -1,0 +1,15 @@
+Can == be used on enum?
+Yes: enums have tight instance controls that allows you to use == to compare instances.
+
+What Is an Enum and How We Can Use It?
+Enum is a type of class that allows developers to specify a set of predefined constant values.
+
+public enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY 
+}
+
+To iterate over all constants we can use the static values() method. 
+What's more, enums enable us to define members such as properties and methods like regular classes.
+
+Another interesting advantage of Enums is that they are thread-safe and so they are popularly used as singletons.
+

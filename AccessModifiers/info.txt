@@ -1,0 +1,6 @@
+There are four access modifiers in Java:
+
+private : just in class
+default (package) : all classes in same package
+protected : all classes in same package + subclass from different package
+public : all packages and classes

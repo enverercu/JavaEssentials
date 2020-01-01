@@ -1,0 +1,21 @@
+What is an Iterator and explain traversing through a collector using Iterator?
+
+We can access each element in the "Collection" by using Iterators 
+irrespective of how they are organized in the collector. 
+Iterator can be implemented a different way for every Collection. 
+To use an iterator to traverse through the contents of a collection we do:
+
+- Obtain an iterator by calling the collections iterator() method to the start of the collection.
+- Set up a loop that makes a call to hasNext(). Have the loop iterate as long as hasNext()returns true.
+- Within the loop, obtain each element by calling next().
+- The remove() method is used to remove the current element in the iteration.
+
+Using Enumeration you can only traverse and fetch the objects, 
+where as using Iterator we can also add and remove the objects.
+
+So Iterator can be useful if you want to manipulate the list 
+and Enumeration is for read-only access.
+
+Iterator can traverse only in forward direction 
+whereas ListIterator traverses both in forward and backward directions.
+

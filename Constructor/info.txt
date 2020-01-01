@@ -1,0 +1,7 @@
+Differences between constructors and methods.
+
+- A constructor is used to create objects of a class. A method is an ordinary member in a class.
+- Constructor does not have a return type. A method should have a return type.
+- Constructor name is the name of the class. A method name should not be the name of the class
+- Constructor is invoked at the time of creation of the class. Method needs to be invoked in another method by using the dot operator.
+- Constructor can not have ‘return’ statement. All methods that return non-void return type should have ‘return’ statement.

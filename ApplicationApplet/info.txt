@@ -1,0 +1,14 @@
+the differences between an applet and an application are as follows:
+
+ Applets can be embedded in HTML pages and downloaded over the Internet 
+ whereas Applications have no special support in HTML for embedding or downloading.
+ 
+ Application starts execution with its "main" method whereas Applet starts execution with its "init" method.
+ 
+ Application must be run "on local machine" whereas applet needs no explicit installation on local machine.
+ 
+ Application must be run explicitly within a java-compatible virtual machine 
+ whereas applet loads and runs itself automatically in a java-enabled browser.
+ 
+ Application can run with or without graphical user interface 
+ whereas applet must run within a graphical user interface.

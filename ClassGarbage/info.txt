@@ -1,0 +1,11 @@
+Java uses the garbage collector to free memory which is occupied 
+by those objects which is no more reference by any of the program.
+
+An object becomes eligible for Garbage Collection when no live thread can access it.
+
+There are many ways to make a class reachable and thus prevent it from being eligible for Garbage Collection:
+
+1. Objects of that class are still reachable.
+2. Class object representing the class is still reachable.
+3. ClassLoader that loaded the class is still reachable.
+4. Other classes loaded by the ClassLoader are still reachable.

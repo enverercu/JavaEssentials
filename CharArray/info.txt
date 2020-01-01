@@ -1,0 +1,6 @@
+Since String is immutable in Java there is no way you can erase contents of String 
+and since they are kept in String pool (in case of String literal) they stay longer on Java heap ,
+which exposes risk of being seen by anyone who has access to Java memory, like reading from memory dump.
+
+Instead char[] should be used to store password or sensitive information.
+

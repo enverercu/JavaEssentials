@@ -1,0 +1,44 @@
+Java provides two interfaces to sort objects using data members of the class:
+
+Comparable
+Comparator
+
+Using Comparable Interface
+
+The Comparable interface is used to sort collections and arrays of objects using the collections.sort() and java.utils.
+
+All classes implementing the comparable interface must implement the compareTo() method that has the return type as an integer. 
+The signature of the compareTo() method is as follows:
+int i = object1.compareTo(object2)
+1. If object1 < object2: The value of i returned will be negative.
+2. If object1 > object2: The value of i returned will be positive.
+3. If object1 = object2: The value of i returned will be zero.
+
+
+A comparable object is capable of comparing itself with another object. 
+The class itself must implements the java.lang.Comparable interface to compare its instances.
+
+Consider a Movie class that has members like, rating, name, year. Suppose we wish to sort a list of Movies 
+based on year of release. We can implement the Comparable interface with the Movie class, 
+and we override the method compareTo() of Comparable interface.
+
+Now, suppose we want sort movies by their rating and names also. 
+When we make a collection element comparable(by having it implement Comparable), 
+we get only one chance to implement the compareTo() method. 
+
+The solution is using Comparator.
+
+Using Comparator
+
+Unlike Comparable, Comparator is external to the element type we are comparing. 
+It’s a separate class. We create multiple separate classes (that implement Comparator) to compare by different members.
+
+Collections class has a second sort() method and it takes Comparator. The sort() method invokes the compare() to sort objects.
+
+To compare movies by Rating, we need to do 3 things :
+
+Create a class that implements Comparator (and thus the compare() method that does the work previously done by compareTo()).
+Make an instance of the Comparator class.
+Call the overloaded sort() method, giving it both the list and the instance of the class that implements Comparator.
+
+

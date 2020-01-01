@@ -1,0 +1,55 @@
+What is a JavaBean exactly?
+
+Basically, a "Bean" follows the standart:
+
+is a serializable object (that is, it implements java.io.Serializable, and does so correctly), that
+has "properties" whose getters and setters are just methods with certain names 
+(like, say, getFoo() is the getter for the "Foo" property), and
+has a public 0-arg constructor (so it can be created at will and configured by setting its properties).
+There is no syntactic difference between a JavaBean and another class - a class is a JavaBean if it follows the standards.
+
+POJO																			JAVA BEAN
+It doesn’t have special restrictions other than those forced by Java language.	It is a special POJO which have some restrictions.
+It doesn’t provide much control on members.										It provides complete control on members.
+It can implement Serializable interface.										It should implement serializable interface.
+Fields can be accessed by their names.											Fields are accessed only by getters and setters.
+Fields can have any visiblity.													Fields have only private visiblity.
+There can be a no-arg constructor.												It must have a no-arg constructor.
+
+POJO is very simple
+BEAN is a POJO with serializable and default no-arg construtor and private fields and getter setters
+BEAN used from UI to Controller to Service to DAO to Hibernate to DB
+
+Autowired - links beans to @Components
+Different Spring Bean Scope.
+1. singleton : Return a single bean instance per Spring IOC container.
+2. prototype : Return a new bean instance each time when requested.
+
+//DAO class:
+public class Manager {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+in the controller
+@Bean
+@Scope("singleton")
+public Manager getManager(){
+	return new Manager();
+}
+
+in the application
+Manager firstManager = context.getBean(Manager.class);
+firstManager.setName("Karol");
+
+Manager secondManager = context.getBean(Manager.class);
+System.out.println(secondManager.getName());
+--Karol
+
