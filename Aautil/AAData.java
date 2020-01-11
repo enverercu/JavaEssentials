@@ -5,9 +5,9 @@ public class AAData {
 	//SET : unique
 	//TREE : sorted
 	//Linked : insertion order preserves
-	//MAP<K,V>
-	//SET<T>
-	//LIST<T>
+	//MAP<K,V> : key
+	//SET<T> : index
+	//LIST<T> : index
 	
 	//[SET]
 	//Set<T> : It is an unordered collection of objects in which duplicate values cannot be stored.
