@@ -1,0 +1,15 @@
+Synchronization in Java will only be needed if shared object is mutable. if your shared object is either read-only or immutable object, then you don't need synchronization
+
+JVM guarantees that Java synchronized code will only be executed by one thread at a time.
+
+Any code written by using  synchronized block or enclosed inside synchronized method will be mutually exclusive, and can only be executed by one thread at a time
+
+You can have both static synchronized method and nonstatic synchronized method and synchronized blocks in Java
+
+but we can not have synchronized variable in java.
+
+Instead of synchronized variable in Java, you can have java volatile variable, which will instruct JVM threads to read the value of the volatile variable from main memory and don’t cache it locally
+
+Block synchronization in Java is preferred over method synchronization in Java because by using block synchronization, you only need to lock the critical section of code instead of the whole method
+
+

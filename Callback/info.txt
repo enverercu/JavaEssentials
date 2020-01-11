@@ -26,7 +26,7 @@ So Basically, the callback performs all its work before returning to the call st
 The problem with synchronous callbacks are that they appear to lag.
 
 
-Asynchronous Callback
+Asynchronous Callback:new thread
 
 An Asynchronous call does not block the program from the code execution. 
 When the call returns from the event, the call returns back to the callback function. 

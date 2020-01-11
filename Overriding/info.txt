@@ -1,0 +1,9 @@
+Define Method overriding. Explain its uses.
+
+Method overriding is the process of writing functionality for methods with the same signature and return type, 
+both in super class and subclass The uses of method overriding:
+
+- Time to invest method signature is reduced .
+- Different functionality in both super class and sub class by sharing same signature.
+- The functionality can be enhanced.
+- The behavior can be replaced in the sub class.

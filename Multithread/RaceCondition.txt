@@ -1,0 +1,8 @@
+What is Race condition?
+
+A race condition occurs when two threads operate on same object 
+without proper synchronization and there operation interleaves on each other.
+
+Race condition is created in program in order to run the 
+parallel execution of program by using multiple threads in a same period.
+

@@ -1,0 +1,119 @@
+https://howtodoinjava.com/java/multi-threading/object-vs-class-level-locking/
+
+For synchronization block. How
+
+   synchronize(this){
+    // code
+   }
+differs from
+
+   synchronize(MyClass.class){
+    //code
+   }
+
+MyClass.class and this are different things, are different references to different objects.
+
+this - is the reference to particular this instance of class, and
+
+MyClass.class - is the reference to MyClass description object.
+
+This synchronization blocks differs in that the first will synchronize "all threads" 
+that deal concretely "with this instance" of MyClass, and the second one will synchronize all threads" independently 
+of which object on which this method was called.
+
+Marking a method synchronized synchronizes on this just like a synchronized (this) block
+
+
+they are the same.
+
+private synchronized void foo() {}
+
+private void foo2() {
+ synchronized(this){
+ }
+}
+
+
+What are the ways to create child threads?
+- There are two ways to create java threads:
+1. Implementing the Runnable Interface :
+2. Extending Thread Class :
+
+
+Any application can have multiple processes (instances).
+
+Each of this process can be assigned either as a single thread or multiple threads.
+
+What is Single Thread?
+There are two types of thread – user thread and daemon thread 
+(daemon threads are used when we want to clean the application and are used in the background).
+
+When an application first begins, user thread is created. 
+Post that, we can create many user threads and daemon threads.
+
+What is Multithreading?
+Multithreading in java is a process of executing two or more threads simultaneously 
+to maximum utilization of CPU.
+
+Multithreaded applications are where two or more threads run concurrently; 
+hence it is also known as Concurrency in Java.
+
+Each thread runs parallel to each other. 
+Threads don't allocate separate memory area; hence it saves memory
+
+
+The users are not blocked because threads are independent, 
+and we can perform multiple operations at times.
+
+As such the threads are independent, 
+the other threads won't get affected if one thread meets an exception.
+
+New: In this phase, the thread is created using class "Thread class".
+It remains in this state till the program starts the thread. It is also known as born thread.
+
+Runnable: In this page, the instance of the thread is invoked with a start method. 
+The thread control is given to scheduler to finish the execution. 
+It depends on the scheduler, whether to run the thread.
+
+Running: When the thread starts executing, then the state is changed to "running" state. 
+The scheduler selects one thread from the thread pool, and it starts executing in the application.
+
+Waiting: This is the state when a thread has to wait. 
+As there multiple threads are running in the application, 
+there is a need for synchronization between threads. 
+Hence, one thread has to wait, till the other thread gets executed. 
+Therefore, this state is referred as waiting state.
+
+Dead: This is the state when the thread is terminated. 
+The thread is in running state and as soon as it completed processing it is in "dead state".
+
+Java Thread Synchronization
+In multithreading, there is the asynchronous behavior of the programs. 
+If one thread is writing some data and another thread which is reading data at the same time, 
+might create inconsistency in the application.
+
+When there is a need to access the shared resources by two or more threads, 
+then synchronization approach is utilized.
+
+In this approach, once the thread reaches inside the synchronized block, 
+then no other thread can call that method on the same object. 
+All threads have to wait till that thread finishes the synchronized block and comes out of that.
+
+One thread has to wait till other thread finishes 
+its execution only then the other threads are allowed for execution.
+
+Explain different way of using thread?
+A Java thread could be implemented by using Runnable interface or by extending the Thread class. 
+The Runnable is more advantageous when you are going for multiple inheritance.
+
+A thread T1 is already running a synchronized block with a lock on object - let's say "lockObject"
+Another thread T2 comes to execute the synchronized block and find that it's already acquired.
+Now T2 calls lockObject.wait() method for waiting on the lock to be release by the T1 thread.
+T1 thread finishes all its synchronized block work.
+The T1 thread calls lockObject.notifyAll() to notify all waiting threads that it done using the lock.
+Since the T2 thread is first in the queue of waiting it acquires the lock and starts processing.
+
+What happens when I make a static method as synchronized?
+Synchronized static methods have a lock on the class "Class", so when a thread enters a synchronized static method, the class itself gets locked by the thread monitor and no other thread can enter any static synchronized methods on that class. This is unlike instance methods, as multiple threads can access "same synchronized instance methods" at the same time for different instances
+
+
