@@ -52,7 +52,7 @@ class Runner {
 		new Scanner(System.in).nextLine();
 		System.out.println("Got return key!");
 		
-		cond.signal();//wakes the waiting thread.
+		cond.signal();//wakes up the waiting thread.
 		
 		try{
 			increment();

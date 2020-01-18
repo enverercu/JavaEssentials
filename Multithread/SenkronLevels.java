@@ -43,7 +43,7 @@ class SenderXX
 { 
     public void send(String msg) 
     { 
-        synchronized(this)  //SenderXX dersen class ý locklar this dersen sadece objeyi locklar
+        synchronized(this)  //SenderXX dersen class ý locklar "this" dersen sadece objeyi locklar
         { 
             System.out.println("Sending\t" + msg ); 
             try 

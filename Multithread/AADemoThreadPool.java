@@ -40,11 +40,14 @@ public class AADemoThreadPool {
 		
 		executor.shutdown();//manager servise artýk submit olmayacaksa durdurmalýyýz.
 		//hemen shutdown yapmaz 5 taskýn bitmesini bekler.
+		//akýþ devam eder, yeni task submit i durdurur sadece.
 		
 		System.out.println("All task submitted.");
 		
 		try {
-			executor.awaitTermination(10, TimeUnit.SECONDS); // 10 saniye bekler, tasklar bitmezse akýþa devam eder.
+			executor.awaitTermination(10, TimeUnit.SECONDS); // akýþý durdurur.10 saniye bekler, tasklar bitmezse akýþa devam eder.
+			//the ExecutorService will first stop taking new tasks, the wait up to a specified period of time for all tasks to be completed. If that time expires, the execution is stopped immediately:
+			//executor.awaitTermination();tüm tasklar bitene kadar akýþý durdurur.
 		} catch (InterruptedException e) {
 		} 
 		
