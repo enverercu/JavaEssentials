@@ -9,7 +9,7 @@ public class AaUtils {
 
 	public static void main(String[] args) {
 		
-		//CONVERT STRING ARRAY TO ARRAYLIST
+		//CONVERT STRING ARRAY TO LIST
 		String[] str = new String[] {"A","B","C"};
 		List<String> list = Arrays.asList(str);
 
