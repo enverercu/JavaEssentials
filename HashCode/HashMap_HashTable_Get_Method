@@ -1,0 +1,28 @@
+requirement of "keys" in a hash-based collection is being an "Immutable" object.
+
+How does get(Key key) method works internally in HashMap, and Hashtable in Java?
+important point to mention is that HashMap in Java stores both key and value object as Map.
+Entry in a bucket which is essential to understand the retrieving logic.
+Some good developer point out here that using "immutable, final object" with proper equals() and hashcode() implementation would act as perfect Java HashMap
+
+when you call get() method with "key" object to retrieve corresponding value from hash based collection.
+
+a) Key.hashCode() method is used to find the bucket location in backing array. (Remember HashMap is backed by array in Java)
+
+b) In backing array or better known as the bucket, key and values are stored in the form of a nested class called Entry.
+If there is only one Entry at bucket location, then the value from that entry is returned
+
+What happens if two keys have the same hashCode?
+If "multiple keys" have the "same hashCode", then during put() operation "collision" had occurred.
+which means multiple Entry objects stored in a bucket location.
+In this case, a linked list is formed at that bucket location and a new entry is stored as next node.
+Since searching inlined list is O(n) operation, in worst case hash collision reduce a map to linked list.
+in Java 8 by replacing linked list to the tree to search in O(logN) time
+
+Each Entry keeps track of another Entry, forming a linked list data structure there.
+
+1) key.hashCode() : Call hashCode() method of the key to finding bucket location.
+2) key.equals() : Traverse thought linked list, comparing keys in each entries using keys.equals() until it returns true.
+
+So, we use "equals() method of a key" object to find correct entry and then return value from that.
+
