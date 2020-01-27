@@ -75,6 +75,7 @@ public class AaUtils {
 		sb.insert(0, "2020");
 		sb.replace(0, 1, "xxx");
 		sb.delete(0,1);
+		sb.deleteCharAt(0);
 		sb.reverse();
 		String sttring = sb.substring(0,1);//index
 		int size = sb.length();
