@@ -9,6 +9,8 @@ public class CheckPrimeNumber {
 		//Prime number is a number that is greater than 1 and divided by 1 or itself only. 
 		//In other words, prime numbers can't be divided by other numbers than itself or 1. 
 		//For example 2, 3, 5, 7, 11, 13, 17.... are the prime numbers.
+		
+		System.out.println(isPrimeNumber(6));
 	}
 	
 	public static boolean isPrimeNumber(int number){
@@ -23,7 +25,7 @@ public class CheckPrimeNumber {
 			return true;
 		}
 		
-		for (int i=4;i<number/2;i++){
+		for (int i=2;i<number;i++){
 			if (number%i == 0 ){
 				flag = false;
 				break;

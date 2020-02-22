@@ -3,7 +3,7 @@ package Basic.Aautil;
 import java.util.*;
 import java.util.stream.*;
 
-import Data.Queue.ArrayQueue;
+import Data.Queues.ArrayQueue;
 
 public class AaUtils {
 

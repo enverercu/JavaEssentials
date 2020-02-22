@@ -1,7 +1,9 @@
 package Basic.Aautil;
 
 import java.util.*;
+import java.util.concurrent.*;
 import java.util.stream.*;
+import java.io.*;
 
 public class AAUsable {
 
@@ -14,6 +16,8 @@ public class AAUsable {
         
         char[] charArray = str.toCharArray();//USE_1
         StringBuilder builder = new StringBuilder(str2);//USE_2
+        String s21 = new String(str2); //char array to string
+        builder.setLength(0); //clear a stringbuilder
         for(char c:charArray){//USE_3
         	int index = builder.indexOf(""+c);//USE_4
         	builder.deleteCharAt(index);//USE_5
@@ -41,12 +45,63 @@ public class AAUsable {
         Set<Integer> trees = new TreeSet<Integer>(); //unique and sorted //USE_14
         Map<Integer,String> map = new HashMap<Integer,String>(); //GENERAL DATA STORE  //USE_15
         Map<Character,Integer> linkedMap = new LinkedHashMap<Character,Integer>(); //insert order //USE_16
-        Map<Integer,String> treeMap = new TreeMap<Integer,String>(); //sort by key //USE_17
+        Map<Integer,String> treeMap = new TreeMap<Integer,String>(); //sort by key //USE_17 //new TreeMap<Integer,String>(new SortByName());
+        Map<Integer,String> table = new Hashtable<Integer,String>();//syncronized. //USE_98
+        Map<Integer,String> syncMap = Collections.synchronizedMap(map);//synchronized. //USE_99 
+        ConcurrentHashMap<Integer,String> conMap = new ConcurrentHashMap();//syncronized. //USE_100  //Unlike Hashtable and Synchronized Map, ConcurrentHashMap "never locks whole Map", instead, it "divides the map into segments and locking" is done on those.Default concurrency level is 16, and accordingly Map is divided into 16 part.This means, 16 thread can operate on Map simultaneously until they are operating on different part of Map.
         List<Integer> list = new ArrayList<Integer>(); //insert order //USE_18
+        List<Integer> conList = Collections.synchronizedList(list); //synchronized. //USE_101
         List<Integer> linkedList = new LinkedList<Integer>(); //insert order //USE_19
+        Queue<String> q = new LinkedList<String>();//USE_114
+        ArrayDeque<Integer> adq = new ArrayDeque<>();//USE_88 //double ended. add both to head and tail.
+        BlockingQueue<StringBuilder> queue = new ArrayBlockingQueue(1);//synchronized. //USE_111 //always bounded --> array --> contiguous --> memory not efficient
+        BlockingQueue<Integer> sharedQueue = new LinkedBlockingQueue<Integer>();//USE_112//So in case you need an unbounded blocking queue, LinkedBlockingQueue used as a BlockingQueue
+        PriorityQueue<Integer> pr = new PriorityQueue<Integer>();//USE_113
+        
+        //ArrayDeque<Integer> adq = new ArrayDeque<>();
+        //STACK - Last in first out - push() - pop() 
+      	adq.push(10);//USE_89
+      	adq.push(11);
+      	adq.push(99);
+      	while(!adq.isEmpty()){
+			System.out.println(adq.pop());//99 11 10 //USE_90
+		}
+      	//QUEUE - First in first out - add() - remove()
+      	adq.add(1);//USE_91
+      	adq.add(2);
+      	adq.add(3);
+      	while(!adq.isEmpty()){
+			System.out.println(adq.remove()); //1 2 3 //USE_92
+		}
+      	
+      	//FIFO
+      	//Queue<String> q = new LinkedList<String>();//USE_93
+      	//This method adds the specified element at the end of Queue
+        q.add("john");//USE_94
+        q.add("mary");
+        //this returns the head of the Queue
+        System.out.println("Head : " + q.peek());//john FIFO
+        //this would remove the first element from the Queue
+        System.out.println("Removed element : " + q.remove());//john //USE_95
+        
+        //Queue<String> q = new LinkedList<String>();//USE_93
+        pr.add(3);
+        pr.add(1);
+        pr.add(2);
+        while( pr.size() > 0 ){//pr.poll returns null, pr.peak() returns null //USE_96
+        	System.out.println(pr.poll());//poll() SORTED !  pr.peak or pr.remove NOT SORTED //USE_97
+        }
+      	
+        table.put(1, "andy");
+        String value = table.get(1);
         
         trees = new TreeSet<Integer>(set); //sort a set //USE_20
+        trees.add(1);
         treeMap = new TreeMap<Integer,String>(map); //sort a map by key //USE_21
+        treeMap.put(1, "andy");
+        
+        map.putIfAbsent(1, "andy");//Bu sekilde eklersek HashMap distinct olur.//USE_85
+        String strring = map.getOrDefault(0,"name"); //birsey bulamazsa null donmez , name doner. //USE_86
 
         Map<Character,Integer> hashmap = new HashMap<Character,Integer>();
         for (char c:c1){ //FILLING HASHMAP
@@ -63,6 +118,12 @@ public class AAUsable {
         	int i = entry.getValue(); //USE_27
         }
         
+        Iterator iter = hashmap.entrySet().iterator();
+	    while(iter.hasNext()){
+	        Map.Entry<Character,Integer> entry = (Map.Entry<Character,Integer>)iter.next();//USE_116
+	        System.out.println(entry.getKey() + "-" + entry.getValue());
+	    }
+        
         for(Integer i:set){ //USE_28
         	
         }
@@ -77,7 +138,13 @@ public class AAUsable {
 		aList.add("B");
 		aList.add("C");
 		aList.add("D");
-		aList.add("C");		
+		aList.add("C");
+		String firstItem = aList.get(0);
+		//Swapping 2nd(index 1) element with the 5th(index 4) element
+	    Collections.swap(aList, 1, 4); //USE_102
+	    int min = Collections.min(list); //USE_109
+		int max = Collections.max(list); //USE_110	
+		System.out.println("min:" + min + " max:" + max);
 		for(String s:aList){
 			System.out.print(s + " ");
 		}	
@@ -300,6 +367,8 @@ public class AAUsable {
             sbs.append(" ");
         }
         
+        
+        
         System.out.println(sbs.toString());
         
         String stiring = "john ann mary ann";
@@ -308,6 +377,52 @@ public class AAUsable {
         //USE_87 :import java.util.stream.*
         liist = liist.stream().distinct().map(name -> name.substring(0,1).toUpperCase() + name.substring(1)).sorted(String::compareTo).collect(Collectors.toList());
         liist.stream().forEach(System.out::println);
+        
+        //CLASS and Collections can serial.
+        ArrayList<String> al=new ArrayList<String>();
+        al.add("Hello");
+        al.add("Hi");
+        al.add("Howdy");
+        try{
+          FileOutputStream fos= new FileOutputStream("D:/myfile.txt");//USE_103
+          ObjectOutputStream oos= new ObjectOutputStream(fos);//USE_104
+          oos.writeObject(al);//USE_105
+          oos.close();
+          fos.close();
+        }catch(IOException ioe){
+             ioe.printStackTrace();
+         }
+        
+        ArrayList<String> arraylist= new ArrayList<String>();
+        try
+        {
+            FileInputStream fis = new FileInputStream("D:/myfile.txt");//USE_106
+            ObjectInputStream ois = new ObjectInputStream(fis);//USE_107
+            arraylist = (ArrayList) ois.readObject(); //(Class) CASTING with objects //USE_108
+            ois.close();
+            fis.close();
+         }catch(IOException ioe){
+             ioe.printStackTrace();
+             return;
+          }catch(ClassNotFoundException c){
+             System.out.println("Class not found");
+             c.printStackTrace();
+             return;
+          }
+        for(String tmp: arraylist){
+            System.out.println(tmp);
+        }
+        
+        String output = String.format("%s = %d","Joe",35);//Joe = 35  //USE_115
+        String s1 = "Java";
+        String s2 = "Programming Language";
+        String s3 = "Best";
+        String o1 = String.format("%3$s %2$s is %1$s",s1,s2,s3); //"Best Programming Language is Java"
+        
+        String s6 = String.format("%1$5s", "99").replace(" ", "0");//"00099"
+        String s7 = String.format("%1$-5s", "99").replace(" ", "0");//"99000"
+		
+		
 		
 	}
 
