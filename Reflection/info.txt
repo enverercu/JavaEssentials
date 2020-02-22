@@ -1,0 +1,15 @@
+What is Reflection API in Java?
+- The Reflection API allows Java code to examine classes and objects at run time.
+- The new reflection classes allow you to call another class's methods dynamically at run time.
+- With the reflection classes, you can also examine an instance's fields and change the fields' contents.
+- It is also possible to instantiate new objects, invoke methods and get/set field values using reflection.
+- The Reflection API consists of the java.lang.Class class and the java.lang.reflect classes: 
+	Field, Method, Constructor, Array, and Modifier.
+	
+
+Static class loading vs. Dynamic class loading.
+- The static class loading is done through the new operator.
+- Dynamic class loading is achieved through Run time type identification. Also called as reflection. 
+  This is done with the help of the following methods:
+getClass(); getName(); getDeclaredFields();
+- Instance can also be created using forName() method. It loads the class into the current class memory.
